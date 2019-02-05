@@ -1,0 +1,18 @@
+SAMPLE 2:
+
+var s = 'hello';	or	let s = 'hello';
+console.log(s);
+
+#let has a scope in a block, while var has a scope in the whole page.
+
+SAMPLE 3:
+
+var name : string ='abhi';
+var id : number = 1;
+var salary : number = 123.04;
+
+console.log(name);
+console.log(id);
+console.log(salary);
+
+
