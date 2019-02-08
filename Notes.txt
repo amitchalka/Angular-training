@@ -1,0 +1,29 @@
+Projects are created in angular, not files. 
+Node is a server side javascript framework. Backend support.
+
+Node -> NPM -> CLI -> NG -> Angular.
+
+To update: ng update @angular/cli or /core.
+
+ng new myProjectName - makes a new project folder.
+Libraries/Framework/Package - They are all js.
+
+File types and their need:
+app.component.css - styling
+.html - layout
+.spec - testing
+.ts - logic
+
+ng generate c component_name - generates a new component
+
+app.module.ts - the file which stores the information regarding all the components. The
+		component will not work if not included in this file.
+main.ts - Has info regarding the module(bootstraps the module). Module has info regarding
+ 	  the application i.e it bootstraps the application.
+
+ng build - converts all .ts files to js and bundles them together.
+
+ngModel is a binding directive. Binding with the UI or javascript.
+Directive - Angular attributes with html. eg: ngFor - 'for' loop for html. So its a logic directive.
+
+All logical arguments start with a *. eg: *ngIf, *ngFor

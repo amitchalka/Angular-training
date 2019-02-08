@@ -1,0 +1,95 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>-->
+
+
+
+
+
+<!--New FORM:-->
+<!--<form #f="ngForm" novalidate (ngSubmit)="save(f.value,f.valid)">
+
+  <div>
+    <label>Name</label>-->
+    <!--bind name to ngModel, it's required with minimum 5 characters-->'
+    <!--<input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" required minlength="5">-->
+    <!--show error only when field is not valid & it's dirty(i.e something happened, pristine means nothing happened i.e default) or form submitted--> ' 
+    <!--<small [hidden]="name.valid || (name.pristine< && !f.submitted)">
+      Name is required (minimum 5 characters).
+    </small>
+  </div>-->
+
+  <!--adress group-->
+  <!--<div ngModelGroup="address">
+    <div>
+      <label>Street</label>
+      <input type="text" name="street" [(ngModel)]="user.address.street" #street="ngModel" required>
+      <small [hidden]="street.valid || (street.pristine && !f.submitted)" class="text-danger">
+        Street is required.
+      </small>
+    </div>
+
+    <div>
+      <label>Post code</label><input type="text" name="postcode" [(ngModel)]="user.address.postcode">
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+  {{f.value | json}}
+</form>-->
+
+
+
+
+<div class="container">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <form [formGroup]="angForm" novalidate>
+    <div class="form group">
+      <label>Name</label>
+      <input class="form-control" formControlName="name" type="text">
+    </div>
+
+    <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['name'].errors.required">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input class="form-control" formControlName="address" type="text">
+    </div>
+    <div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['address'].errors.required">
+        Address is required.
+      </div>
+    </div>
+    <button type="submit"
+      [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success">
+      Save
+    </button>
+  </form>
+  <br/>
+  <p>Form value: {{angForm.value | json}}</p>
+  <p>Form status: {{angForm.status | json}}</p>
+</div>
+
+
+
+<router-outlet></router-outlet>
